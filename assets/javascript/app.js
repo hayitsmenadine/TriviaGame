@@ -19,11 +19,11 @@ function timer() {
 
 
 function checkAnswers () {
-	var q1 = document.forms["form"]["q1"].value;
-	var q2 = document.forms["form"]["q2"].value;
-	var q3 = document.forms["form"]["q3"].value;
-	var q4 = document.forms["form"]["q4"].value;
-	var q5 = document.forms["form"]["q5"].value;
+	var q1 = document.forms[0]["q1"].value;
+	var q2 = document.forms[1]["q2"].value;
+	var q3 = document.forms[2]["q3"].value;
+	var q4 = document.forms[3]["q4"].value;
+	var q5 = document.forms[4]["q5"].value;
 	
 	var questions = [q1, q2, q3, q4, q5];
 	var answers = ["1", "1", "1", "1", "1"];
@@ -31,11 +31,11 @@ function checkAnswers () {
 	var points = 0;
 	var total = 5;
 
-	for (var i =0; i<total; i++) {
+	for (var i =0; i<total.length; i++) {
 		if (questions[i] === answers[i]) {
-			document.getElementById("correctAnswer").innerHTML += "Ok";	
+			document.getElementById("correctAnswer").innerHTML = "Number of Correct Answers: ";	
 		} else {
-			document.getElementById("wrongAnswer").innerHTML += " WRONG";
+			document.getElementById("wrongAnswer").innerHTML = "Number of Wrong Answers: ";
 		}
 	}
 };
