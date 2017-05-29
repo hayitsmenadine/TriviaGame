@@ -2,18 +2,20 @@
 var count = 30;
 
 var counter = setInterval(timer, 1000);
-
+var win = 0;
+var lose= 0;
 
 
 
 function timer() {
 	count= count-1;
 	if (count <= 0) {
+		checkAnswers();
 		clearInterval(counter);
 		alert("times up!");
 	}
 	document.getElementById("timer").innerHTML = "Time Remaining: "+ count + " secs";
-	checkAnswers();
+
 };
 
 
@@ -30,12 +32,18 @@ function checkAnswers () {
 
 	var points = 0;
 	var total = 5;
-
-	for (var i =0; i<total.length; i++) {
+  	document.getElementById("correctAnswer").innerHTML = "Number of Correct Answers: ";
+	document.getElementById("wrongAnswer").innerHTML = "Number of Wrong Answers: ";
+	for (var i =0; i<total; i++) {
+		
 		if (questions[i] === answers[i]) {
-			document.getElementById("correctAnswer").innerHTML = "Number of Correct Answers: ";	
+			win++;
+			document.getElementById("correctAnswer").innerHTML = "Number of Correct Answers: " +win+ "!";
 		} else {
-			document.getElementById("wrongAnswer").innerHTML = "Number of Wrong Answers: ";
+			lose++;
+			document.getElementById("wrongAnswer").innerHTML = "Number of Wrong Answers: " +lose+ "!";
 		}
 	}
+	
 };
+
